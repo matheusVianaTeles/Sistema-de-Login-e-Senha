@@ -26,15 +26,23 @@ function entrar(){
 
         }
     })
-  if (usuario.value == userValid.user && senha.value == userValid.senha){
-      window.location.href = '../Logado/logado.html'
-  } else{
-     userLabel.setAttribute('style', 'color: red')
-     usuario.setAttribute('style', 'border-color: red')
-     senhaLabel.setAttribute('style', 'color: red')
-     senha.setAttribute('style', 'border-color: red')
-     msgError.setAttribute('style','display: block')
-     msgError.innerHTML = 'Usuario ou senha incorretos'
-  }
+    if (usuario.value == '' || senha.value == ''){
+        userLabel.setAttribute('style', 'color: red')
+        usuario.setAttribute('style', 'border-color: red')
+        senhaLabel.setAttribute('style', 'color: red')
+        senha.setAttribute('style', 'border-color: red')
+        msgError.setAttribute('style','display: block')
+        msgError.innerHTML = 'Preencha os campos'
+
+    } else if (usuario.value == userValid.user && senha.value == userValid.senha){
+        window.location.href = '../Logado/logado.html'
+    } else {
+        userLabel.setAttribute('style', 'color: red')
+        usuario.setAttribute('style', 'border-color: red')
+        senhaLabel.setAttribute('style', 'color: red')
+        senha.setAttribute('style', 'border-color: red')
+        msgError.setAttribute('style','display: block')
+        msgError.innerHTML = 'Usuario ou senha incorretos'
+    }
 
 }
